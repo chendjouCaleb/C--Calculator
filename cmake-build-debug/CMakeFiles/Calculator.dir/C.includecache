@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/chendjou/CLionProjects/Calculator/evaluator.h
+
+C:/Users/chendjou/CLionProjects/Calculator/list.h
+
+C:/Users/chendjou/CLionProjects/Calculator/main.c
+stdio.h
+-
+locale.h
+-
+evaluator.h
+C:/Users/chendjou/CLionProjects/Calculator/evaluator.h
+map.h
+C:/Users/chendjou/CLionProjects/Calculator/map.h
+list.h
+C:/Users/chendjou/CLionProjects/Calculator/list.h
+variable.h
+C:/Users/chendjou/CLionProjects/Calculator/variable.h
+wchar.h
+-
+
+C:/Users/chendjou/CLionProjects/Calculator/map.h
+
+C:/Users/chendjou/CLionProjects/Calculator/variable.h
+
