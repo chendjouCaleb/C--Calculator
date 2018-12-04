@@ -4,17 +4,59 @@
 #include "map.h"
 #include "variable.h"
 #include "function.h"
+#include "command.h"
+#include "util.h"
 #include <wchar.h>
+#include <malloc.h>
 
+void op(char* operation);
 int main(void) {
     setlocale(LC_ALL, "");
     //init_function_storage();
     init_variable_storage();
-    add_or_update_variable("xy", "15.963");
-    print_map(get_all_variables());
-    save_variable("xy");
-    remove_variable("xy");
-    remove_variable("xyz");
+//    add_or_update_variable("xy", "15.963");
+//    print_map(get_all_variables());
+//    save_variable("xy");
+
+    char command[1000] = {};
+    char instruction[100] = {};
+    char description[500] = {};
+
+    do{
+        console_read(command, 1000);
+
+        split_command(command, instruction, description);
+
+        if(strcmp("var", instruction) == 0){
+            char *name = strtok(description, "=");
+            char *expression = strtok(NULL, "=");
+
+            Operation* operation = init_operation(expression);
+            double r = eval(operation);
+            char* result = double_to_string(r);
+            if (!operation ->hasError){
+                add_or_update_variable(name, result);
+                printf("%s = %s\n", name, result);
+            }
+
+
+        } else if(strcmp("save", instruction) == 0){
+
+            save_variable(description);
+        } else if(strcmp("remove", instruction) == 0){
+            remove_variable(description);
+        }
+
+        else if(instruction[0] == ' '){
+
+        }
+        else{
+            op(instruction);
+        }
+
+    }while (strcmp("exit", instruction));
+
+
     //add_function("root(x,y)=cos(x)+sin(y)");
 
 
@@ -57,6 +99,11 @@ int main1(){
     return 0;
 }
 
-void op(char* operation){
-    printf("%s=%f\n\n", operation, eval(init_operation(operation)));
+void op(char* expression){
+    Operation* operation = init_operation(expression);
+    double result = eval(operation);
+    if (!operation ->hasError){
+        printf("%s\n", double_to_string(result));
+        //printf("%f", result);
+    }
 }

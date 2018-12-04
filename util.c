@@ -3,6 +3,8 @@
 //
 
 #include <stdio.h>
+#include <mem.h>
+#include <malloc.h>
 #include "util.h"
 
 int is_digit(char op) {
@@ -41,7 +43,7 @@ double to_double(char* string){
         result = 10 * result + string[i] - '0';
         i++;
     }
-    if (string[i] == '.') {
+    if (string[i] == '.' || string[i] == ',') {
         i++;
         double j = 1;
         while (string[i] >= '0' && string[i] <= '9') {
@@ -54,4 +56,31 @@ double to_double(char* string){
     result += decimal;
     //printf("v=%f\n", result);
     return result;
+}
+
+void replace_char(char* string, char find, char replacement){
+    int i =0;
+    for (int i = 0; i < strlen(string); ++i) {
+        if(string[i] == find){
+            string[i] = replacement;
+        }
+    }
+}
+
+char* double_to_string(double value){
+    char* str_value = malloc(sizeof(char) * 100);
+    memset(str_value, 0, sizeof(str_value));
+    snprintf(str_value, 50, "%2.8f", value);
+    int i;
+    for (int i = strlen(str_value); i > 0; i--) {
+        if(str_value[i] != '0' && str_value[i] != '\0'){
+            str_value[i+1] = '\0';
+            break;
+        }
+    }
+    i = strlen(str_value) - 1;
+    if(str_value[i] == ','){
+        str_value[i] = '\0';
+    }
+    return str_value;
 }

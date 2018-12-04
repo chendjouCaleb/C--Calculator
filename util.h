@@ -15,5 +15,7 @@ int is_digit_or_letter(char character);
 
 void create_file_if_not_exist(char* name);
 double to_double(char* string);
+void replace_char(char* string, char find, char replacement);
+char* double_to_string(double value);
 
 #endif //CALCULATOR_UTIL_H

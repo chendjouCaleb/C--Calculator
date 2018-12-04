@@ -73,11 +73,17 @@ double factor(Operation *operation) {
             double values[10];
             int i = 0;
             values[0] = eval(operation);
+
             i++;
             while (get_current(operation) == ','){
                 pop_current(operation);
                 values[i] = eval(operation);
+
                 i++;
+            }
+            if(get_current(operation) != ')'){
+                printf("La caractère ')' est attendu à la position %d\n", operation ->cursor);
+                operation ->hasError++;
             }
 
             pop_current(operation);
@@ -131,7 +137,7 @@ double value(Operation *operation) {
     while (get_current(operation) >= '0' && get_current(operation) <= '9') {
         result = 10 * result + pop_current(operation) - '0';
     }
-    if (has_char(operation) && get_current(operation) == '.') {
+    if (has_char(operation) && (get_current(operation) == '.') ){
         pop_current(operation);
         double j = 1;
         while (get_current(operation) >= '0' && get_current(operation) <= '9') {
