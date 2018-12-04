@@ -9,6 +9,8 @@
 #include <math.h>
 #include "evaluator.h"
 #include "variable.h"
+#include "function.h"
+#include "util.h"
 
 
 double eval(Operation *operation) {
@@ -64,16 +66,38 @@ double factor(Operation *operation) {
         result = value(operation);
     } else if(is_letter(get_current(operation))){
         char* name = get_name(operation);
-        double value = get_variable(name);
-        if(value == 0){
-            printf("La variable ou la constant '%s' n'existe pas\n", name);
-            operation ->hasError = 1;
+
+        if(get_current(operation) == '('){
+            operation -> depth +=1;
+            pop_current(operation);
+            double values[10];
+            int i = 0;
+            values[0] = eval(operation);
+            i++;
+            while (get_current(operation) == ','){
+                pop_current(operation);
+                values[i] = eval(operation);
+                i++;
+            }
+
+            pop_current(operation);
+            char* func_expression = interpret_function(name, values);
+            Operation* sub_op = init_operation(func_expression);
+            result = eval(sub_op);
+
+        } else{
+            double value = get_variable(name);
+            if(value == 0){
+                printf("La variable ou la constant '%s' n'existe pas\n", name);
+                operation ->hasError = 1;
+            }
+            result = value;
         }
-        return value;
     }
 
 
     else if (get_current(operation) == '(') {
+        printf("parenthèse\n");
         operation -> depth +=1;
         pop_current(operation);
         result = eval(operation);
@@ -151,21 +175,10 @@ char get_current(Operation *operation) {
     return operation->expression[operation->cursor];
 }
 
-int is_digit(char op){
-    return op >= '0' && op <= '9';
-}
-
-int is_letter(char character){
-    return character <= 'z' && character >= 'a';
-}
-int is_factor_begin(char op){
-    return op == '+' || op == '-' || op == '(' || is_digit(op) || is_letter(op);
-}
-
 char* get_name(Operation* operation){
     char* name = malloc(sizeof(char) * 20);
     int i=0;
-    while (has_char(operation) && is_letter(get_current(operation))){
+    while (has_char(operation) && is_digit_or_letter(get_current(operation))){
         name[i] = pop_current(operation);
         i++;
     }

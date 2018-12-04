@@ -33,19 +33,41 @@ void push_to_list(List* list, void* value){
     list->size++;
 }
 
-int pop_to_list(List* list){
+void* pop_to_list(List* list){
     if(list -> first == NULL){
         exit(EXIT_FAILURE);
     }
 
     //if(list -> first != NULL){
         Node* to_pop = list -> first;
-        int value = to_pop -> value;
+        void* value = to_pop -> value;
         list -> first = list -> first -> next;
         free(to_pop);
     //}
     list->size--;
     return value;
+}
+
+int remove_from_list(List* list, void* value){
+    Node* node = list -> first;
+    if(node ->value == value){
+        pop_to_list(list);
+        return 1;
+    }
+    Node* prev;
+    while (node != NULL){
+        if(node ->next -> value == value){
+            prev = node;
+            Node* toDelete = node ->next;
+            prev -> next = toDelete -> next;
+            free(toDelete);
+            return 1;
+        }
+        node = node ->next;
+    }
+    printf("Aucune valeur %s n'a été trouvée", value);
+    return 0;
+
 }
 
 void print_list(List* list){
@@ -60,5 +82,5 @@ void print_list(List* list){
         actual = actual -> next;
     }
     printf("NULL\n");
-    printf("size: %d", list -> size);
+    printf("size: %d\n", list -> size);
 }

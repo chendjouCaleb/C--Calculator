@@ -5,7 +5,7 @@
 #ifndef CALCULATOR_LIST_H
 #define CALCULATOR_LIST_H
 
-#endif //CALCULATOR_LIST_H
+
 
 typedef struct Node Node;
 struct Node {
@@ -22,5 +22,8 @@ struct List {
 
 void print_list(List* list);
 void push_to_list(List* list, void *value);
-int pop_to_list(List* list);
+void* pop_to_list(List* list);
+int remove_from_list(List* list, void *value);
 List* create_list();
+
+#endif //CALCULATOR_LIST_H
