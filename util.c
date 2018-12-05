@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <mem.h>
 #include <malloc.h>
+
 #include "util.h"
 
 int is_digit(char op) {
@@ -16,7 +17,7 @@ int is_letter(char character) {
 }
 
 int is_digit_or_letter(char character) {
-    return is_letter(character) || is_letter(character);
+    return is_letter(character) || is_digit(character);
 }
 
 int is_factor_begin(char op) {
@@ -27,7 +28,7 @@ void create_file_if_not_exist(char *name) {
 
     FILE *file = fopen(name, "a+");
     if (file != NULL) {
-        printf("Le fichier %s a été crée\n", name);
+        //printf("Le fichier %s a été crée\n", name);
         fclose(file);
     } else {
         printf("Impossible de créer le fichier %s\n", name);

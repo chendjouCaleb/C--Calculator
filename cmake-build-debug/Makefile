@@ -122,6 +122,60 @@ Calculator/fast:
 	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/build
 .PHONY : Calculator/fast
 
+HConsole.obj: HConsole.c.obj
+
+.PHONY : HConsole.obj
+
+# target to build an object file
+HConsole.c.obj:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/HConsole.c.obj
+.PHONY : HConsole.c.obj
+
+HConsole.i: HConsole.c.i
+
+.PHONY : HConsole.i
+
+# target to preprocess a source file
+HConsole.c.i:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/HConsole.c.i
+.PHONY : HConsole.c.i
+
+HConsole.s: HConsole.c.s
+
+.PHONY : HConsole.s
+
+# target to generate assembly for a file
+HConsole.c.s:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/HConsole.c.s
+.PHONY : HConsole.c.s
+
+command.obj: command.c.obj
+
+.PHONY : command.obj
+
+# target to build an object file
+command.c.obj:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/command.c.obj
+.PHONY : command.c.obj
+
+command.i: command.c.i
+
+.PHONY : command.i
+
+# target to preprocess a source file
+command.c.i:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/command.c.i
+.PHONY : command.c.i
+
+command.s: command.c.s
+
+.PHONY : command.s
+
+# target to generate assembly for a file
+command.c.s:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/command.c.s
+.PHONY : command.c.s
+
 evaluator.obj: evaluator.c.obj
 
 .PHONY : evaluator.obj
@@ -148,6 +202,33 @@ evaluator.s: evaluator.c.s
 evaluator.c.s:
 	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/evaluator.c.s
 .PHONY : evaluator.c.s
+
+function.obj: function.c.obj
+
+.PHONY : function.obj
+
+# target to build an object file
+function.c.obj:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/function.c.obj
+.PHONY : function.c.obj
+
+function.i: function.c.i
+
+.PHONY : function.i
+
+# target to preprocess a source file
+function.c.i:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/function.c.i
+.PHONY : function.c.i
+
+function.s: function.c.s
+
+.PHONY : function.s
+
+# target to generate assembly for a file
+function.c.s:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/function.c.s
+.PHONY : function.c.s
 
 list.obj: list.c.obj
 
@@ -230,6 +311,33 @@ map.c.s:
 	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/map.c.s
 .PHONY : map.c.s
 
+util.obj: util.c.obj
+
+.PHONY : util.obj
+
+# target to build an object file
+util.c.obj:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/util.c.obj
+.PHONY : util.c.obj
+
+util.i: util.c.i
+
+.PHONY : util.i
+
+# target to preprocess a source file
+util.c.i:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/util.c.i
+.PHONY : util.c.i
+
+util.s: util.c.s
+
+.PHONY : util.s
+
+# target to generate assembly for a file
+util.c.s:
+	$(MAKE) -f CMakeFiles\Calculator.dir\build.make CMakeFiles/Calculator.dir/util.c.s
+.PHONY : util.c.s
+
 variable.obj: variable.c.obj
 
 .PHONY : variable.obj
@@ -266,9 +374,18 @@ help:
 	@echo ... rebuild_cache
 	@echo ... Calculator
 	@echo ... edit_cache
+	@echo ... HConsole.obj
+	@echo ... HConsole.i
+	@echo ... HConsole.s
+	@echo ... command.obj
+	@echo ... command.i
+	@echo ... command.s
 	@echo ... evaluator.obj
 	@echo ... evaluator.i
 	@echo ... evaluator.s
+	@echo ... function.obj
+	@echo ... function.i
+	@echo ... function.s
 	@echo ... list.obj
 	@echo ... list.i
 	@echo ... list.s
@@ -278,6 +395,9 @@ help:
 	@echo ... map.obj
 	@echo ... map.i
 	@echo ... map.s
+	@echo ... util.obj
+	@echo ... util.i
+	@echo ... util.s
 	@echo ... variable.obj
 	@echo ... variable.i
 	@echo ... variable.s

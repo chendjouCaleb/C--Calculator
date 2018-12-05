@@ -20,15 +20,22 @@ Map* create_map(){
 }
 
 void put_to_map(Map* map, char* key, void* value){
-    KeyValue* keyValue = malloc(sizeof(KeyValue));
+    KeyValue* keyValue = malloc(sizeof(*keyValue));
     keyValue ->value = value;
-    keyValue -> key = key;
-    keyValue ->next = map ->list ->first;
+    keyValue -> key = malloc(sizeof(key));
+    int i = 0;
+    while(key[i] != '\0'){
+        keyValue ->key[i] = key[i];
+        i++;
+    }
+    keyValue ->key[i] = '\0';
+
     map ->size +=1;
     push_to_list(map -> list, keyValue);
 }
 
 void save_or_update_from_map(Map* map, char* key, void* value){
+
     KeyValue* current = get_key_value_from_map(map, key);
 
     if(current != NULL){

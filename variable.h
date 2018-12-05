@@ -9,7 +9,7 @@
 #include "map.h"
 
 void init_variable_storage();
-double get_variable(char* key);
+char* get_variable(char* key);
 double to_double(char* string);
 
 void load_file_variables();

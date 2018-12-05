@@ -18,7 +18,6 @@ typedef struct Map Map;
 struct KeyValue{
     char* key;
     void* value;
-    KeyValue* next;
 };
 
 struct Map {

@@ -5,7 +5,7 @@
 #ifndef CALCULATOR_EVALUATOR_H
 #define CALCULATOR_EVALUATOR_H
 
-#endif //CALCULATOR_EVALUATOR_H
+
 
 typedef struct Operation Operation;
 
@@ -27,4 +27,6 @@ int has_char(Operation* operation);
 double factor(Operation* operation);
 Operation* init_operation(char* expression);
 char* get_name(Operation* operation);
-char* get_name(Operation* operation);
+//void init_evaluator_hConsole();
+
+#endif //CALCULATOR_EVALUATOR_H

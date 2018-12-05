@@ -1,5 +1,5 @@
 //
-// Created by chendjou on 01/12/2018.
+// Created by aey on 01/12/2018.
 //
 
 #include <stdio.h>
@@ -11,13 +11,17 @@
 #include "variable.h"
 #include "function.h"
 #include "util.h"
+#include "HConsole.h"
 
-
+//HANDLE hConsole;
+//void init_evaluator_hConsole(){
+//    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+//}
 double eval(Operation *operation) {
+
 
     double result = term(operation);
     while (has_char(operation) && (get_current(operation) == '-' || get_current(operation) == '+')) {
-        //printf("op=%c\n", get_current());
         char op = pop_current(operation);
         if (op == '+') {
             result += term(operation);
@@ -28,7 +32,9 @@ double eval(Operation *operation) {
     }
     if(has_char(operation) && (get_current(operation) == ')' && operation -> depth == 0)) {
         operation ->hasError = 1;
+        red_text();
         printf("Le caractère '%c' à la position %d est inattendu\n", get_current(operation), operation->cursor);
+        white_text();
     }
 
     //printf("%s = %f; len=%d; c=%d", operation->expression, result, operation->length, operation->cursor);
@@ -59,7 +65,10 @@ double term(Operation *operation) {
 double factor(Operation *operation) {
     //printf("cursor=%d, char=%c\n", operation ->cursor, get_current(operation));
     if(!is_factor_begin(get_current(operation))) {
+        red_text();
+        operation -> hasError++;
         printf("Le caractère '%c' à la position %d n'est pas un début de facteur\n", get_current(operation), operation->cursor);
+        white_text();
     }
     double result = 0;
     if (current_is_digit(operation)) {
@@ -82,34 +91,42 @@ double factor(Operation *operation) {
                 i++;
             }
             if(get_current(operation) != ')'){
+                red_text();
                 printf("La caractère ')' est attendu à la position %d\n", operation ->cursor);
+                white_text();
                 operation ->hasError++;
             }
-
+            operation -> depth -=1;
             pop_current(operation);
             char* func_expression = interpret_function(name, values);
             Operation* sub_op = init_operation(func_expression);
             result = eval(sub_op);
 
         } else{
-            double value = get_variable(name);
-            if(value == 0){
-                printf("La variable ou la constant '%s' n'existe pas\n", name);
+            char* value = get_variable(name);
+            if(value == NULL){
+                red_text();
+                printf("La variable ou la constante '%s' n'existe pas\n", name);
+                white_text();
                 operation ->hasError = 1;
+            } else{
+                result = to_double(value);
             }
-            result = value;
+
         }
     }
 
 
     else if (get_current(operation) == '(') {
-        printf("parenthèse\n");
         operation -> depth +=1;
         pop_current(operation);
         result = eval(operation);
        // printf("cursor=%d, char=%c\n", operation ->cursor, get_current(operation));
         if (pop_current(operation) != ')') {
+            operation ->hasError = 1;
+            red_text();
             printf("Le caractère ')' est attendu à la position %d\n", operation->cursor);
+            white_text();
         }
         operation -> depth-=1;
 

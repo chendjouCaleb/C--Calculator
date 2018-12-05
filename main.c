@@ -6,27 +6,32 @@
 #include "function.h"
 #include "command.h"
 #include "util.h"
+#include "HConsole.h"
 #include <wchar.h>
 #include <malloc.h>
+#include <windows.h>
 
 void op(char* operation);
+HANDLE hConsole;
 int main(void) {
+    init_HConsole();
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    //init_evaluator_hConsole();
     setlocale(LC_ALL, "");
-    //init_function_storage();
+
     init_variable_storage();
-//    add_or_update_variable("xy", "15.963");
-//    print_map(get_all_variables());
-//    save_variable("xy");
-
-    char command[1000] = {};
-    char instruction[100] = {};
-    char description[500] = {};
-
+    char command[1000];
+    char instruction[100];
+    char* description = malloc(sizeof(char) * 20);
     do{
+        memset(command, 0, sizeof(*command));
+        memset(instruction, 0, sizeof(*instruction));
+        memset(description, 0, sizeof(*description));
         console_read(command, 1000);
 
         split_command(command, instruction, description);
 
+        //printf("Instruction: %s\n", instruction);
         if(strcmp("var", instruction) == 0){
             char *name = strtok(description, "=");
             char *expression = strtok(NULL, "=");
@@ -35,8 +40,11 @@ int main(void) {
             double r = eval(operation);
             char* result = double_to_string(r);
             if (!operation ->hasError){
+                strcat(name, "");
                 add_or_update_variable(name, result);
-                printf("%s = %s\n", name, result);
+                SetConsoleTextAttribute(hConsole, 9);
+                printf("%s = %s\n\n", name, result);
+                SetConsoleTextAttribute(hConsole, 15);
             }
 
 
@@ -45,9 +53,13 @@ int main(void) {
             save_variable(description);
         } else if(strcmp("remove", instruction) == 0){
             remove_variable(description);
+        } else if(strcmp("clear", instruction) == 0){
+            system("cls");
+        } else if(strcmp("vars", instruction) == 0){
+            print_map(get_all_variables());
         }
 
-        else if(instruction[0] == ' '){
+        else if(instruction[0] == '\0'){
 
         }
         else{
@@ -56,54 +68,33 @@ int main(void) {
 
     }while (strcmp("exit", instruction));
 
-
-    //add_function("root(x,y)=cos(x)+sin(y)");
-
-
-
-
-    //printf("PI = %f\n", get_variable("pi"));
-//    op("303.11+2+4-1+4+9+6");
-//    op("30.11+2+4-1+4+9+6");
-//    op("-21+4+9+6");
-//    op("+21+4+9+6");
-//    op("*21+4+9+6");
-//    op("30.11*2+4/1");
-//    op("21+(4+9+6");
-//    op("30*2+4*1+(4+9)*6");
-//    op("30.11*2+4*1+(4+9)*6");
-//    op("2+4+9*6^2");
-//    op("2+4+9+6^(2))");
-//    op("2+4+9+6^(2+1)");
-//    op("pi+4");
-//    op("pi");
-//    op("sqrt(100)");
-//    op("sqrt(100,)+1");
-//    op("pow(10,sqrt(4))");
-//    op("e+4");
-
     return 0;
 }
 
-int main1(){
-
-    Map* map = create_map();
-    put_to_map(map, "name", "chendjou");
-    put_to_map(map, "surname", "deGrasse");
-    put_to_map(map, "tel", "chendjou");
-    print_map(map);
-
-    printf("ddd");
-    char* name = get_from_map(map, "name");
-    printf("name = %s", name);
-    return 0;
-}
-
+double operation_count = 1;
 void op(char* expression){
+    char* operation_count_str;
+    char* var_name = malloc(sizeof(char) * 100);
     Operation* operation = init_operation(expression);
     double result = eval(operation);
     if (!operation ->hasError){
-        printf("%s\n", double_to_string(result));
-        //printf("%f", result);
+        SetConsoleTextAttribute(hConsole, 10);
+        printf("%s\n\n", double_to_string(result));
+        SetConsoleTextAttribute(hConsole, 15);
+
+        add_or_update_variable("ans", double_to_string(result));
+
+        operation_count_str = double_to_string(operation_count);
+
+        var_name[0] = 'a';
+        var_name[1] = 'n';
+        var_name[2] = 's';
+        var_name[3] = '\0';
+        char* r = strcat(var_name, operation_count_str);
+
+
+        add_or_update_variable(var_name, double_to_string(result));
+        operation_count++;
     }
+
 }

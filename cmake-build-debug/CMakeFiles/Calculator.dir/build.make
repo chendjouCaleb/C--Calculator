@@ -121,13 +121,69 @@ CMakeFiles/Calculator.dir/variable.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calculator.dir/variable.c.s"
 	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\chendjou\CLionProjects\Calculator\variable.c -o CMakeFiles\Calculator.dir\variable.c.s
 
+CMakeFiles/Calculator.dir/function.c.obj: CMakeFiles/Calculator.dir/flags.make
+CMakeFiles/Calculator.dir/function.c.obj: ../function.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Calculator.dir/function.c.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calculator.dir\function.c.obj   -c C:\Users\chendjou\CLionProjects\Calculator\function.c
+
+CMakeFiles/Calculator.dir/function.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calculator.dir/function.c.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\chendjou\CLionProjects\Calculator\function.c > CMakeFiles\Calculator.dir\function.c.i
+
+CMakeFiles/Calculator.dir/function.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calculator.dir/function.c.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\chendjou\CLionProjects\Calculator\function.c -o CMakeFiles\Calculator.dir\function.c.s
+
+CMakeFiles/Calculator.dir/util.c.obj: CMakeFiles/Calculator.dir/flags.make
+CMakeFiles/Calculator.dir/util.c.obj: ../util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Calculator.dir/util.c.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calculator.dir\util.c.obj   -c C:\Users\chendjou\CLionProjects\Calculator\util.c
+
+CMakeFiles/Calculator.dir/util.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calculator.dir/util.c.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\chendjou\CLionProjects\Calculator\util.c > CMakeFiles\Calculator.dir\util.c.i
+
+CMakeFiles/Calculator.dir/util.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calculator.dir/util.c.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\chendjou\CLionProjects\Calculator\util.c -o CMakeFiles\Calculator.dir\util.c.s
+
+CMakeFiles/Calculator.dir/command.c.obj: CMakeFiles/Calculator.dir/flags.make
+CMakeFiles/Calculator.dir/command.c.obj: ../command.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Calculator.dir/command.c.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calculator.dir\command.c.obj   -c C:\Users\chendjou\CLionProjects\Calculator\command.c
+
+CMakeFiles/Calculator.dir/command.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calculator.dir/command.c.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\chendjou\CLionProjects\Calculator\command.c > CMakeFiles\Calculator.dir\command.c.i
+
+CMakeFiles/Calculator.dir/command.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calculator.dir/command.c.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\chendjou\CLionProjects\Calculator\command.c -o CMakeFiles\Calculator.dir\command.c.s
+
+CMakeFiles/Calculator.dir/HConsole.c.obj: CMakeFiles/Calculator.dir/flags.make
+CMakeFiles/Calculator.dir/HConsole.c.obj: ../HConsole.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Calculator.dir/HConsole.c.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calculator.dir\HConsole.c.obj   -c C:\Users\chendjou\CLionProjects\Calculator\HConsole.c
+
+CMakeFiles/Calculator.dir/HConsole.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calculator.dir/HConsole.c.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\chendjou\CLionProjects\Calculator\HConsole.c > CMakeFiles\Calculator.dir\HConsole.c.i
+
+CMakeFiles/Calculator.dir/HConsole.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calculator.dir/HConsole.c.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\chendjou\CLionProjects\Calculator\HConsole.c -o CMakeFiles\Calculator.dir\HConsole.c.s
+
 # Object files for target Calculator
 Calculator_OBJECTS = \
 "CMakeFiles/Calculator.dir/main.c.obj" \
 "CMakeFiles/Calculator.dir/list.c.obj" \
 "CMakeFiles/Calculator.dir/evaluator.c.obj" \
 "CMakeFiles/Calculator.dir/map.c.obj" \
-"CMakeFiles/Calculator.dir/variable.c.obj"
+"CMakeFiles/Calculator.dir/variable.c.obj" \
+"CMakeFiles/Calculator.dir/function.c.obj" \
+"CMakeFiles/Calculator.dir/util.c.obj" \
+"CMakeFiles/Calculator.dir/command.c.obj" \
+"CMakeFiles/Calculator.dir/HConsole.c.obj"
 
 # External object files for target Calculator
 Calculator_EXTERNAL_OBJECTS =
@@ -137,11 +193,15 @@ Calculator.exe: CMakeFiles/Calculator.dir/list.c.obj
 Calculator.exe: CMakeFiles/Calculator.dir/evaluator.c.obj
 Calculator.exe: CMakeFiles/Calculator.dir/map.c.obj
 Calculator.exe: CMakeFiles/Calculator.dir/variable.c.obj
+Calculator.exe: CMakeFiles/Calculator.dir/function.c.obj
+Calculator.exe: CMakeFiles/Calculator.dir/util.c.obj
+Calculator.exe: CMakeFiles/Calculator.dir/command.c.obj
+Calculator.exe: CMakeFiles/Calculator.dir/HConsole.c.obj
 Calculator.exe: CMakeFiles/Calculator.dir/build.make
 Calculator.exe: CMakeFiles/Calculator.dir/linklibs.rsp
 Calculator.exe: CMakeFiles/Calculator.dir/objects1.rsp
 Calculator.exe: CMakeFiles/Calculator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Calculator.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\chendjou\CLionProjects\Calculator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable Calculator.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Calculator.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

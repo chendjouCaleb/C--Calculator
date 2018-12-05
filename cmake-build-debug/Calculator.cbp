@@ -74,10 +74,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/HConsole.c">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/HConsole.h">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/command.c">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/command.h">
+			<Option target="Calculator"/>
+		</Unit>
 		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/evaluator.c">
 			<Option target="Calculator"/>
 		</Unit>
 		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/evaluator.h">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/function.c">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/function.h">
 			<Option target="Calculator"/>
 		</Unit>
 		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/list.c">
@@ -93,6 +111,12 @@
 			<Option target="Calculator"/>
 		</Unit>
 		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/map.h">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/util.c">
+			<Option target="Calculator"/>
+		</Unit>
+		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/util.h">
 			<Option target="Calculator"/>
 		</Unit>
 		<Unit filename="C:/Users/chendjou/CLionProjects/Calculator/variable.c">

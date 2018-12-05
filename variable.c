@@ -9,6 +9,7 @@
 #include "map.h"
 #include "util.h"
 #include "list.h"
+#include "HConsole.h"
 
 Map* map;
 Map* file_variables;
@@ -17,9 +18,11 @@ void init_variable_storage(){
     file_variables = create_map();
 
     create_file_if_not_exist("variable.cal");
-    put_to_map(map, "pi", "3.14");
-    load_file_variables();
+    put_to_map(map, "PI", "3.14159265358979");
+    put_to_map(map, "E", "2.71828182845905");
+    put_to_map(map, "G", "9.8");
 
+    load_file_variables();
 }
 
 void load_file_variables(){
@@ -34,8 +37,8 @@ void load_file_variables(){
         while (is_digit_or_letter(content[cursor])){
             char* name = malloc(sizeof(char)*50);
             char* value = malloc(sizeof(char)*50);
-            memset(name, 0, sizeof((name)));
-            memset(value, 0, sizeof((name)));
+            memset(name, 0, sizeof(name));
+            memset(value, 0, sizeof(value));
             while (content[cursor] != '='){
                 name[i] = content[cursor];
                 i++;
@@ -51,19 +54,22 @@ void load_file_variables(){
             put_to_map(file_variables, name, value);
         }
         fclose(file);
-        printf("Variables readed form file\n");
+        //printf("Variables readed form file\n");
 
     }
 }
 
 int add_or_update_variable(char* key, char* value){
+
     save_or_update_from_map(map, key, value);
 }
 
 void save_variable(char* key){
     char* value = get_from_map(map, key);
     if(value == NULL){
-        printf("La variable '%s' n'existe pas", key);
+        red_text();
+        printf("La variable '%s' n'existe pas\n", key);
+        white_text();
     } else{
         save_or_update_from_map(file_variables, key, value);
         write_variable_in_file();
@@ -90,13 +96,12 @@ void write_variable_in_file(){
     }
 }
 
-double get_variable(char* key){
+char* get_variable(char* key){
     char* v = get_from_map(map, key);
     if(v != NULL){
-        double value = to_double(v);
-        return value;
+        return v;
     }
-    return 0;
+    return NULL;
 }
 
 

@@ -4,10 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "C:/Users/chendjou/CLionProjects/Calculator/HConsole.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/HConsole.c.obj"
+  "C:/Users/chendjou/CLionProjects/Calculator/command.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/command.c.obj"
   "C:/Users/chendjou/CLionProjects/Calculator/evaluator.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/evaluator.c.obj"
+  "C:/Users/chendjou/CLionProjects/Calculator/function.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/function.c.obj"
   "C:/Users/chendjou/CLionProjects/Calculator/list.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/list.c.obj"
   "C:/Users/chendjou/CLionProjects/Calculator/main.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/main.c.obj"
   "C:/Users/chendjou/CLionProjects/Calculator/map.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/map.c.obj"
+  "C:/Users/chendjou/CLionProjects/Calculator/util.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/util.c.obj"
   "C:/Users/chendjou/CLionProjects/Calculator/variable.c" "C:/Users/chendjou/CLionProjects/Calculator/cmake-build-debug/CMakeFiles/Calculator.dir/variable.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
