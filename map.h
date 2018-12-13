@@ -31,6 +31,7 @@ Map* create_map();
 
 void put_to_map(Map* map, char* key, void* value);
 void remove_from_map(Map* map, char* key);
+void remove_all_from_map(Map* map);
 void* get_from_map(Map* map, char* key);
 void print_map(Map* map);
 void* get_key_value_from_map(Map* map, char* key);

@@ -12,9 +12,20 @@
 #include <windows.h>
 
 void op(char* operation);
+void save_operation(char* operation, double op_result);
+void print_last_operations();
 HANDLE hConsole;
+
+List* last_operations;
+int main2(void){
+    add_function("tan(xdd,y,ze1)=sin(x)/cos(x)");
+
+    return 0;
+}
+
 int main(void) {
     init_HConsole();
+    last_operations = create_list();
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     //init_evaluator_hConsole();
     setlocale(LC_ALL, "");
@@ -24,15 +35,17 @@ int main(void) {
     char instruction[100];
     char* description = malloc(sizeof(char) * 20);
     do{
-        memset(command, 0, sizeof(*command));
-        memset(instruction, 0, sizeof(*instruction));
-        memset(description, 0, sizeof(*description));
         console_read(command, 1000);
 
         split_command(command, instruction, description);
 
-        //printf("Instruction: %s\n", instruction);
         if(strcmp("var", instruction) == 0){
+            if(strchr(description, '=') == NULL){
+                red_text();
+                printf("Mauvaise déclaration de variable\n");
+                white_text();
+                continue;
+            }
             char *name = strtok(description, "=");
             char *expression = strtok(NULL, "=");
 
@@ -46,21 +59,32 @@ int main(void) {
                 printf("%s = %s\n\n", name, result);
                 SetConsoleTextAttribute(hConsole, 15);
             }
-
-
+            
         } else if(strcmp("save", instruction) == 0){
-
             save_variable(description);
-        } else if(strcmp("remove", instruction) == 0){
+        }
+        else if(strcmp("remove", instruction) == 0){
             remove_variable(description);
-        } else if(strcmp("clear", instruction) == 0){
+        }
+        else if(strcmp("clear", instruction) == 0){
             system("cls");
-        } else if(strcmp("vars", instruction) == 0){
+        }
+        else if(strcmp("vars", instruction) == 0){
             print_map(get_all_variables());
+        }
+        else if(strcmp("operations", instruction) == 0){
+            print_last_operations();
+        }
+        else if(strcmp("reset", instruction) == 0){
+            remove_all_from_list(last_operations);
+            remove_all_variable();
+            load_default_constant();
         }
 
         else if(instruction[0] == '\0'){
-
+            red_text();
+            printf("Instruction ignorée\n");
+            white_text();
         }
         else{
             op(instruction);
@@ -71,7 +95,6 @@ int main(void) {
     return 0;
 }
 
-double operation_count = 1;
 void op(char* expression){
     char* operation_count_str;
     char* var_name = malloc(sizeof(char) * 100);
@@ -83,18 +106,29 @@ void op(char* expression){
         SetConsoleTextAttribute(hConsole, 15);
 
         add_or_update_variable("ans", double_to_string(result));
-
-        operation_count_str = double_to_string(operation_count);
-
-        var_name[0] = 'a';
-        var_name[1] = 'n';
-        var_name[2] = 's';
-        var_name[3] = '\0';
-        char* r = strcat(var_name, operation_count_str);
-
-
-        add_or_update_variable(var_name, double_to_string(result));
-        operation_count++;
+        save_operation(expression, result);
     }
 
+}
+
+void save_operation(char* operation, double op_result){
+    char* result_str = double_to_string(op_result);
+    char* result = malloc(sizeof(operation) + sizeof(result_str ) +5);
+    result[0] = '\0';
+    strcat(result, operation);
+    strcat(result, " = ");
+    strcat(result, result_str);
+    push_to_list(last_operations, result);
+
+    if(last_operations -> size == 4){
+        remove_last_from_list(last_operations);
+    }
+}
+
+void print_last_operations(){
+    Node* node = last_operations ->first;
+    while (node != NULL){
+        printf("%s\n", node -> value);
+        node = node -> next;
+    }
 }

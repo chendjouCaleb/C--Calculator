@@ -18,11 +18,15 @@ void init_variable_storage(){
     file_variables = create_map();
 
     create_file_if_not_exist("variable.cal");
+    load_default_constant();
+
+    load_file_variables();
+}
+
+void load_default_constant() {
     put_to_map(map, "PI", "3.14159265358979");
     put_to_map(map, "E", "2.71828182845905");
     put_to_map(map, "G", "9.8");
-
-    load_file_variables();
 }
 
 void load_file_variables(){
@@ -80,6 +84,10 @@ void remove_variable(char* key){
     remove_from_map(map, key);
     remove_from_map(file_variables, key);
     write_variable_in_file();
+}
+
+void remove_all_variable(){
+    remove_all_from_map(map);
 }
 
 void write_variable_in_file(){

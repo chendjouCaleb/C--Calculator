@@ -67,13 +67,43 @@ int remove_from_list(List* list, void* value){
     }
     printf("Aucune valeur %s n'a été trouvée", value);
     return 0;
+}
 
+void* get_last_from_list(List* list){
+    Node* node = list ->first;
+    while (node ->next != NULL){
+        node = node -> next;
+    }
+    return node ->value;
+}
+int remove_last_from_list(List* list){
+    Node* node = list ->first;
+    if(node == NULL){
+        return 0;
+    }
+    if(node ->next == NULL){
+        list ->first = NULL;
+        list -> size--;
+        free(node);
+        return 1;
+    }
+    while (node ->next ->next != NULL){
+        node = node -> next;
+    }
+    free(node ->next);
+    node ->next = NULL;
+    list -> size--;
+    return 1;
+}
+
+
+void remove_all_from_list(List* list){
+    while (list ->first != NULL){
+        remove_last_from_list(list);
+    }
 }
 
 void print_list(List* list){
-    if(list -> first == NULL){
-        exit(EXIT_FAILURE);
-    }
 
     Node* actual = list->first;
 

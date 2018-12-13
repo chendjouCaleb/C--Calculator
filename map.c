@@ -22,13 +22,8 @@ Map* create_map(){
 void put_to_map(Map* map, char* key, void* value){
     KeyValue* keyValue = malloc(sizeof(*keyValue));
     keyValue ->value = value;
-    keyValue -> key = malloc(sizeof(key));
-    int i = 0;
-    while(key[i] != '\0'){
-        keyValue ->key[i] = key[i];
-        i++;
-    }
-    keyValue ->key[i] = '\0';
+    keyValue -> key = malloc(strlen(key) + 1);
+    strcpy(keyValue -> key, key);
 
     map ->size +=1;
     push_to_list(map -> list, keyValue);
@@ -91,7 +86,9 @@ void remove_from_map(Map* map, char* key){
     if(current != NULL){
         remove_from_list(map ->list, current);
         free(current);
-    } else{
-        printf("La variable %s n'existe pas\n");
     }
+}
+
+void remove_all_from_map(Map* map){
+    remove_all_from_list(map ->list);
 }

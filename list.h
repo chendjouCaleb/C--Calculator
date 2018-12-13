@@ -23,6 +23,10 @@ struct List {
 void print_list(List* list);
 void push_to_list(List* list, void *value);
 void* pop_to_list(List* list);
+void* get_last_from_list(List* list);
+int remove_last_from_list(List* list);
+void remove_all_from_list(List* list);
+
 int remove_from_list(List* list, void *value);
 List* create_list();
 
